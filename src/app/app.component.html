@@ -1,5 +1,62 @@
 <div class="flex flex-col">
-  <div>
-    <p-menubar [model]="items"/>
+  <!-- nav bar -->
+  <div class="w-full">
+    <p-menubar [model]="items" styleClass="bg-white rounded-none">
+      <ng-template pTemplate="start">
+        <div class="flex mr-2 lg:mr-10">
+          <div class="flex items-center">
+            <p-image
+              src="/logo/rentalcat.png"
+              alt="Button Apartment LLC"
+              imageClass="w-[50px] lg:w-[100px]"
+            />
+          </div>
+          <div class="flex items-center">
+            <p
+              class="font-bold text-[15px] lg:text-[30px] tracking-wide select-none"
+            >
+              BUTTON APARTMENT LLC
+            </p>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="end">
+        <p-button label="Log In" size="small" />
+      </ng-template>
+    </p-menubar>
+  </div>
+
+  <!-- router component -->
+  <router-outlet></router-outlet>
+
+  <!-- footer -->
+  <div class="w-full bg-green-100 flex justify-center p-5">
+    <div
+      class="w-full lg:w-1/2 flex flex-col lg:flex-row space-y-2 space-x-0 lg:space-y-0 lg:space-x-2 justify-between"
+    >
+      <!-- office location -->
+      <div class="flex flex-col">
+        <p>
+          <span class="font-bold">Office Location:</span> 1234 Example St.,
+          City, State 12345
+        </p>
+        <iframe
+          title="office-location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99352.13656216064!2d-104.8119618440708!3d38.906734341537515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x871348fac5d99bd1%3A0x2f7406bb60b58e95!2sKing%20Soopers!5e0!3m2!1sen!2sus!4v1730762228337!5m2!1sen!2sus"
+          width="100%"
+          height="200"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <!-- copyright -->
+      <div class="flex items-end">
+        <p class="m-0 text-right">&copy; 2024 Button Apartment LLC</p>
+      </div>
+    </div>
   </div>
 </div>

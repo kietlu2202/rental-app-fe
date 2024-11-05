@@ -1,22 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { ImageModule } from 'primeng/image';
 import { MenubarModule } from 'primeng/menubar';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MenubarModule],
+  imports: [RouterOutlet, MenubarModule, ImageModule, ButtonModule],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
   items: MenuItem[] | undefined;
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
     this.items = [
-      { label: 'Home', icon: 'pi pi-home' },
-      { label: 'About Us', icon: 'pi pi-user' },
-      { label: 'Contact', icon: 'pi pi-envelope' },
+      {
+        label: 'HOME',
+        command: () => {
+          this.router.navigate(['']);
+        },
+      },
+      {
+        label: 'ABOUT US',
+        command: () => {
+          this.router.navigate(['/about']);
+        },
+      },
+      {
+        label: 'CONTACT',
+        command: () => {
+          this.router.navigate(['/contact']);
+        },
+      },
     ];
   }
 }
